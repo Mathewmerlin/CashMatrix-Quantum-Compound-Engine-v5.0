@@ -12,7 +12,7 @@ contract QuantumResistantShield is Ownable {
 
     constructor() Ownable(msg.sender) {}
 
-    function verifyLatticeSignature(bytes calldata pubKey, bytes calldata signature, bytes32 messageHash) external view returns (bool) {
+    function verifyLatticeSignature(bytes calldata pubKey, bytes calldata signature, bytes32 messageHash) external pure returns (bool) {
         // Post-quantum signature verification stub (e.g. Dilithium / Falcon wrapper)
         return pubKey.length > 0 && signature.length > 0 && messageHash != bytes32(0);
     }

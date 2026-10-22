@@ -12,7 +12,7 @@ contract QuantumArbitrageEngine is Ownable {
 
     constructor() Ownable(msg.sender) {}
 
-    function executeFlashArbitrage(address tokenIn, address tokenOut, uint256 amount, bytes calldata data) external onlyOwner {
+    function executeFlashArbitrage(address tokenIn, address tokenOut, uint256 amount, bytes calldata) external onlyOwner {
         // Flash-loan callback and multi-DEX routing logic
         emit ArbitrageExecuted(tokenIn, tokenOut, amount / 100);
     }
