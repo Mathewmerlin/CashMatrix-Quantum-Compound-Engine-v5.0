@@ -4,6 +4,7 @@ pragma solidity ^0.8.24;
 import "forge-std/Test.sol";
 import {IntentMeshRouter} from "../contracts/core/IntentMeshRouter.sol";
 import {CashMatrixKeeper} from "../contracts/core/KeeperBot.sol";
+import {CashMatrixTimelock} from "../contracts/governance/CashMatrixTimelock.sol";
 
 contract ExecutableTarget {
     uint256 public lastValue;
@@ -207,5 +208,101 @@ contract CashMatrixKeeperTest is Test {
     function test_RevertWhen_InvalidVault() public {
         vm.expectRevert("Invalid vault address");
         new CashMatrixKeeper(address(0));
+    }
+}
+
+contract CashMatrixTimelockTest is Test {
+    CashMatrixTimelock internal timelock;
+
+    address internal target = makeAddr("target");
+    address internal attacker = makeAddr("attacker");
+
+    uint256 internal value = 0;
+    bytes internal data = "";
+    uint256 internal executeTime;
+
+    function setUp() public {
+        timelock = new CashMatrixTimelock(address(this));
+        executeTime = block.timestamp + 1 days + 1;
+    }
+
+    function test_QueueAndExecuteTransaction() public {
+        bytes32 txHash = timelock.queueTransaction(
+            target,
+            value,
+            data,
+            executeTime
+        );
+
+        assertTrue(timelock.queuedTransactions(txHash));
+
+        vm.warp(executeTime);
+
+        timelock.executeTransaction(target, value, data, executeTime);
+
+        assertFalse(timelock.queuedTransactions(txHash));
+    }
+
+    function test_RevertWhen_DelayTooShort() public {
+        vm.expectRevert("Delay too short");
+        timelock.queueTransaction(
+            target,
+            value,
+            data,
+            block.timestamp + 1 hours
+        );
+    }
+
+    function test_RevertWhen_NotReady() public {
+        timelock.queueTransaction(target, value, data, executeTime);
+
+        vm.expectRevert("Transaction not ready");
+        timelock.executeTransaction(target, value, data, executeTime);
+    }
+
+    function test_RevertWhen_NotQueued() public {
+        vm.warp(executeTime);
+
+        vm.expectRevert("Transaction not queued");
+        timelock.executeTransaction(target, value, data, executeTime);
+    }
+
+    function test_RevertWhen_TransactionExpired() public {
+        timelock.queueTransaction(target, value, data, executeTime);
+
+        vm.warp(executeTime + 31 days);
+
+        vm.expectRevert("Transaction expired");
+        timelock.executeTransaction(target, value, data, executeTime);
+    }
+
+    function test_RevertWhen_DuplicateQueue() public {
+        timelock.queueTransaction(target, value, data, executeTime);
+
+        vm.expectRevert("Already queued");
+        timelock.queueTransaction(target, value, data, executeTime);
+    }
+
+    function test_CancelTransaction() public {
+        bytes32 txHash = timelock.queueTransaction(
+            target,
+            value,
+            data,
+            executeTime
+        );
+
+        timelock.cancelTransaction(target, value, data, executeTime);
+
+        assertFalse(timelock.queuedTransactions(txHash));
+    }
+
+    function test_RevertWhen_NonOwnerExecutes() public {
+        timelock.queueTransaction(target, value, data, executeTime);
+
+        vm.warp(executeTime);
+
+        vm.prank(attacker);
+        vm.expectRevert();
+        timelock.executeTransaction(target, value, data, executeTime);
     }
 }
