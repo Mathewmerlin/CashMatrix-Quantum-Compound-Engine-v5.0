@@ -3,6 +3,7 @@ pragma solidity ^0.8.24;
 
 import "forge-std/Test.sol";
 import {IntentMeshRouter} from "../contracts/core/IntentMeshRouter.sol";
+import {CashMatrixKeeper} from "../contracts/core/KeeperBot.sol";
 
 contract ExecutableTarget {
     uint256 public lastValue;
@@ -138,5 +139,73 @@ contract IntentMeshRouterTest is Test {
             payload,
             deadline
         );
+    }
+}
+
+contract VaultMock {
+    uint256 public compoundCalls;
+    uint256 public lastYield;
+
+    function compoundYield(
+        uint256,
+        bytes calldata
+    ) external returns (uint256) {
+        compoundCalls++;
+        lastYield = compoundCalls * 100;
+        return lastYield;
+    }
+}
+
+contract CashMatrixKeeperTest is Test {
+    CashMatrixKeeper internal keeper;
+    VaultMock internal vault;
+
+    address internal keeperRole = makeAddr("keeper");
+    address internal attacker = makeAddr("attacker");
+
+    function setUp() public {
+        vault = new VaultMock();
+        keeper = new CashMatrixKeeper(address(vault));
+
+        keeper.grantRole(keeper.KEEPER_ROLE(), keeperRole);
+    }
+
+    function test_KeeperCanCompoundAfterInterval() public {
+        vm.warp(block.timestamp + 1 hours + 1);
+
+        vm.prank(keeperRole);
+        keeper.performUpkeep("");
+
+        assertEq(vault.compoundCalls(), 1);
+        assertEq(keeper.lastCompoundTimestamp(), block.timestamp);
+    }
+
+    function test_RevertWhen_IntervalNotElapsed() public {
+        vm.prank(keeperRole);
+        vm.expectRevert("Compound interval not elapsed");
+        keeper.performUpkeep("");
+    }
+
+    function test_RevertWhen_NotKeeper() public {
+        vm.warp(block.timestamp + 1 hours + 1);
+
+        vm.prank(attacker);
+        vm.expectRevert();
+        keeper.performUpkeep("");
+    }
+
+    function test_CheckUpkeepReturnsCorrectState() public {
+        (bool beforeInterval, ) = keeper.checkUpkeep("");
+        assertFalse(beforeInterval);
+
+        vm.warp(block.timestamp + 1 hours + 1);
+
+        (bool afterInterval, ) = keeper.checkUpkeep("");
+        assertTrue(afterInterval);
+    }
+
+    function test_RevertWhen_InvalidVault() public {
+        vm.expectRevert("Invalid vault address");
+        new CashMatrixKeeper(address(0));
     }
 }
