@@ -6,6 +6,7 @@ import {IntentMeshRouter} from "../contracts/core/IntentMeshRouter.sol";
 import {CashMatrixKeeper} from "../contracts/core/KeeperBot.sol";
 import {CashMatrixTimelock} from "../contracts/governance/CashMatrixTimelock.sol";
 import {YieldInsurancePool} from "../contracts/security/YieldInsurancePool.sol";
+import {OmniGenesis2050Master} from "../contracts/core/OmniGenesis2050Master.sol";
 
 contract ExecutableTarget {
     uint256 public lastValue;
@@ -367,5 +368,104 @@ contract YieldInsurancePoolTest is Test {
         vm.prank(attacker);
         vm.expectRevert();
         pool.payoutClaim(attacker, 0.1 ether);
+    }
+}
+
+contract MockERC20 {
+    string public name = "Mock Token";
+    string public symbol = "MOCK";
+    uint8 public decimals = 18;
+
+    mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
+
+    function mint(address to, uint256 amount) external {
+        balanceOf[to] += amount;
+    }
+
+    function transfer(address to, uint256 amount) external returns (bool) {
+        balanceOf[msg.sender] -= amount;
+        balanceOf[to] += amount;
+        return true;
+    }
+
+    function transferFrom(
+        address from,
+        address to,
+        uint256 amount
+    ) external returns (bool) {
+        uint256 allowed = allowance[from][msg.sender];
+        require(allowed >= amount, "Insufficient allowance");
+
+        allowance[from][msg.sender] = allowed - amount;
+        balanceOf[from] -= amount;
+        balanceOf[to] += amount;
+        return true;
+    }
+
+    function approve(address spender, uint256 amount) external returns (bool) {
+        allowance[msg.sender][spender] = amount;
+        return true;
+    }
+}
+
+contract OmniGenesis2050MasterTest is Test {
+    OmniGenesis2050Master internal master;
+    MockERC20 internal token;
+
+    address internal user = makeAddr("user");
+    address internal attacker = makeAddr("attacker");
+
+    function setUp() public {
+        token = new MockERC20();
+        master = new OmniGenesis2050Master(
+            address(token),
+            bytes32("initial-genome"),
+            0
+        );
+
+        token.mint(address(master), 10 ether);
+    }
+
+    function test_HarvestSplitsProfitCorrectly() public {
+        master.executeAutonomicHarvest(user, 1 ether);
+
+        assertEq(master.userClaimableProfit(user), 0.5 ether);
+        assertEq(master.computeTreasuryReserve(), 0.5 ether);
+    }
+
+    function test_UserCanWithdrawProfit() public {
+        master.executeAutonomicHarvest(user, 1 ether);
+
+        vm.prank(user);
+        master.withdrawUserProfit(0.5 ether);
+
+        assertEq(master.userClaimableProfit(user), 0);
+        assertEq(token.balanceOf(user), 0.5 ether);
+    }
+
+    function test_RevertWhen_WithdrawExceedsClaimable() public {
+        vm.prank(attacker);
+        vm.expectRevert("Exceeds claimable balance");
+        master.withdrawUserProfit(1 ether);
+    }
+
+    function test_RevertWhen_SplitOutOfBounds() public {
+        vm.expectRevert("Split out of bounds");
+        master.setSplitBasisPoints(500);
+
+        vm.expectRevert("Split out of bounds");
+        master.setSplitBasisPoints(9500);
+    }
+
+    function test_RevertWhen_MutationVerifierDisabled() public {
+        vm.expectRevert("Mutation lock engaged");
+        master.mutateGenome(bytes32("new-genome"), hex"1234");
+    }
+
+    function test_RevertWhen_NonOwnerHarvests() public {
+        vm.prank(attacker);
+        vm.expectRevert();
+        master.executeAutonomicHarvest(user, 1 ether);
     }
 }
