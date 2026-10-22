@@ -171,7 +171,11 @@ function MainDashboard() {
               const currentBase = initialAsset > 0 ? initialAsset : 1040;
               return {
                 id: t.id || `ledger-${idx}-${Date.now()}`,
-                cycle: t.batch ? String(t.batch).replace('#', '') : String(data.length - idx),
+                cycle: Number(
+                t.batch
+                ? String(t.batch).replace('#', '')
+                : data.length - idx
+                ),
                 txHash: t.txHash || '0x0000000000000000000000000000000000000000000000000000000000000000',
                 pair: t.pair || 'USDC/tBNB-QUANTUM-NODE',
                 inputCapital: currentBase,
