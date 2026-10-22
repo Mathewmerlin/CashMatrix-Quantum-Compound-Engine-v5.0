@@ -69,8 +69,8 @@ contract CashMatrixTimelock is Ownable {
     )
         external
         payable
-        onlyOwner
         nonReentrant
+        onlyOwner
         returns (bytes memory)
     {
         require(target != address(0), "Invalid target");
@@ -85,12 +85,11 @@ contract CashMatrixTimelock is Ownable {
             "Transaction expired"
         );
 
-        queuedTransactions[txHash] = false;
+                queuedTransactions[txHash] = false;
+        emit TransactionExecuted(txHash, target, value, data);
 
         (bool success, bytes memory result) = target.call{value: value}(data);
         require(success, "Execution failed");
-
-        emit TransactionExecuted(txHash, target, value, data);
 
         return result;
     }

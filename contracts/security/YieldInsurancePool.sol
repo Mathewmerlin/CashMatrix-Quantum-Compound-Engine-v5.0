@@ -37,11 +37,10 @@ contract YieldInsurancePool is Ownable {
         require(amount > 0, "Zero amount");
         require(reserveBalance >= amount, "Insufficient reserve funds");
 
-        reserveBalance -= amount;
+            reserveBalance -= amount;
+        emit ClaimPaid(recipient, amount);
 
         (bool success, ) = payable(recipient).call{value: amount}("");
         require(success, "ETH transfer failed");
-
-        emit ClaimPaid(recipient, amount);
     }
 }

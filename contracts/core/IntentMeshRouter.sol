@@ -86,11 +86,10 @@ contract IntentMeshRouter is Ownable {
         require(block.timestamp <= intent.deadline, "Intent expired");
         require(approvedTargets[intent.target], "Target not approved");
 
-        intent.executed = true;
+              intent.executed = true;
+        emit IntentExecuted(intentHash, msg.sender);
 
         (bool success, ) = intent.target.call(intent.payload);
         require(success, "Payload execution failed");
-
-        emit IntentExecuted(intentHash, msg.sender);
     }
 }
