@@ -58,7 +58,6 @@ contract CashMatrixKeeper is AccessControl {
         lastCompoundTimestamp = block.timestamp;
 
         uint256 harvestedYield = IVault(vault).compoundYield(0, "");
-        require(harvestedYield >= 0, "Compound failed");
 
         emit CompoundTriggered(block.timestamp, harvestedYield);
     }

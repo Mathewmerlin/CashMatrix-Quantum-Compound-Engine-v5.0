@@ -32,7 +32,7 @@ contract YieldInsurancePool is Ownable {
     function payoutClaim(
         address recipient,
         uint256 amount
-    ) external onlyOwner nonReentrant {
+    ) external nonReentrant onlyOwner {
         require(recipient != address(0), "Invalid recipient");
         require(amount > 0, "Zero amount");
         require(reserveBalance >= amount, "Insufficient reserve funds");
