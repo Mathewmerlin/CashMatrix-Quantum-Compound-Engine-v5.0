@@ -5,6 +5,7 @@ import "forge-std/Test.sol";
 import {IntentMeshRouter} from "../contracts/core/IntentMeshRouter.sol";
 import {CashMatrixKeeper} from "../contracts/core/KeeperBot.sol";
 import {CashMatrixTimelock} from "../contracts/governance/CashMatrixTimelock.sol";
+import {YieldInsurancePool} from "../contracts/security/YieldInsurancePool.sol";
 
 contract ExecutableTarget {
     uint256 public lastValue;
@@ -304,5 +305,67 @@ contract CashMatrixTimelockTest is Test {
         vm.prank(attacker);
         vm.expectRevert();
         timelock.executeTransaction(target, value, data, executeTime);
+    }
+}
+
+contract YieldInsurancePoolTest is Test {
+    YieldInsurancePool internal pool;
+
+    address internal recipient = makeAddr("recipient");
+    address internal attacker = makeAddr("attacker");
+
+    function setUp() public {
+        pool = new YieldInsurancePool();
+    }
+
+    function test_DepositIncreasesReserve() public {
+        vm.deal(address(this), 1 ether);
+
+        (bool success, ) = address(pool).call{value: 1 ether}("");
+        assertTrue(success);
+
+        assertEq(pool.reserveBalance(), 1 ether);
+    }
+
+    function test_OwnerCanPayClaim() public {
+        vm.deal(address(this), 1 ether);
+        (bool success, ) = address(pool).call{value: 1 ether}("");
+        assertTrue(success);
+
+        uint256 recipientBalanceBefore = recipient.balance;
+
+        pool.payoutClaim(recipient, 0.5 ether);
+
+        assertEq(pool.reserveBalance(), 0.5 ether);
+        assertEq(recipient.balance, recipientBalanceBefore + 0.5 ether);
+    }
+
+    function test_RevertWhen_InsufficientReserve() public {
+        vm.expectRevert("Insufficient reserve funds");
+        pool.payoutClaim(recipient, 1 ether);
+    }
+
+    function test_RevertWhen_ZeroRecipient() public {
+        vm.deal(address(this), 1 ether);
+        (bool success, ) = address(pool).call{value: 1 ether}("");
+        assertTrue(success);
+
+        vm.expectRevert("Invalid recipient");
+        pool.payoutClaim(address(0), 0.1 ether);
+    }
+
+    function test_RevertWhen_ZeroAmount() public {
+        vm.expectRevert("Zero amount");
+        pool.payoutClaim(recipient, 0);
+    }
+
+    function test_RevertWhen_NonOwnerPaysClaim() public {
+        vm.deal(address(this), 1 ether);
+        (bool success, ) = address(pool).call{value: 1 ether}("");
+        assertTrue(success);
+
+        vm.prank(attacker);
+        vm.expectRevert();
+        pool.payoutClaim(attacker, 0.1 ether);
     }
 }
