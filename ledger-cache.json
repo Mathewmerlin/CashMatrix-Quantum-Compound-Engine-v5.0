@@ -1,0 +1,452 @@
+[
+  {
+    "batch": "#136054957",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x93b5cb945cce9b151896d387172b3081d3de3212a2861d8289900c7fc02aaf09",
+    "yieldGenerated": "$0.4400",
+    "userShare": "$0.2200",
+    "timestamp": "2:35:08 AM"
+  },
+  {
+    "id": "trade-1791671708813",
+    "batch": "#136054957",
+    "pair": "ETH/USDT-CROSS-ROUTER",
+    "txHash": "0x93b5cb945cce9b151896d387172b3081d3de3212a2861d8289900c7fc02aaf09",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.44,
+    "nextTradeAmount": 208.22,
+    "timestamp": "2:35:08 AM"
+  },
+  {
+    "batch": "#136054944",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0xee7e330150607812ea9716c1f54aeaa19b8037eb957394bf11dcde20865785af",
+    "yieldGenerated": "$0.4600",
+    "userShare": "$0.2300",
+    "timestamp": "2:35:04 AM"
+  },
+  {
+    "id": "trade-1791671704621",
+    "batch": "#136054944",
+    "pair": "ETH/USDT-CROSS-ROUTER",
+    "txHash": "0xee7e330150607812ea9716c1f54aeaa19b8037eb957394bf11dcde20865785af",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.46,
+    "nextTradeAmount": 208.24,
+    "timestamp": "2:35:04 AM"
+  },
+  {
+    "batch": "#136054948",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x319a929bdb80671ee353720c2ea9dc430d825297c1dcf90ca2582ab7f1046ce9",
+    "yieldGenerated": "$1.0900",
+    "userShare": "$0.5450",
+    "timestamp": "2:35:04 AM"
+  },
+  {
+    "id": "trade-1791671704416",
+    "batch": "#136054948",
+    "pair": "USDT/USDC-ARBITRAGE",
+    "txHash": "0x319a929bdb80671ee353720c2ea9dc430d825297c1dcf90ca2582ab7f1046ce9",
+    "inputCapital": 207.78,
+    "yieldGenerated": 1.09,
+    "nextTradeAmount": 208.87,
+    "timestamp": "2:35:04 AM"
+  },
+  {
+    "batch": "#136054930",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0xf8c602c3049169940cd4f88b768a8435a762f3d427dde3cc5f96887b88912ac4",
+    "yieldGenerated": "$1.2400",
+    "userShare": "$0.6200",
+    "timestamp": "2:35:00 AM"
+  },
+  {
+    "id": "trade-1791671700643",
+    "batch": "#136054930",
+    "pair": "BTCB/USDC-DELTA-NODE",
+    "txHash": "0xf8c602c3049169940cd4f88b768a8435a762f3d427dde3cc5f96887b88912ac4",
+    "inputCapital": 207.78,
+    "yieldGenerated": 1.24,
+    "nextTradeAmount": 209.02,
+    "timestamp": "2:35:00 AM"
+  },
+  {
+    "batch": "#136054923",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x9f87b960fa29f684d6ec1a6c4c24b26b15b41cf1215813d77dd8344e61ac26c4",
+    "yieldGenerated": "$0.9800",
+    "userShare": "$0.4900",
+    "timestamp": "2:34:53 AM"
+  },
+  {
+    "id": "trade-1791671693692",
+    "batch": "#136054923",
+    "pair": "USDT/USDC-ARBITRAGE",
+    "txHash": "0x9f87b960fa29f684d6ec1a6c4c24b26b15b41cf1215813d77dd8344e61ac26c4",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.98,
+    "nextTradeAmount": 208.76,
+    "timestamp": "2:34:53 AM"
+  },
+  {
+    "batch": "#136054913",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0xa1ef414ac961615ae921046e0a845a951c6644720c093cb50a37efe3a533512c",
+    "yieldGenerated": "$0.9900",
+    "userShare": "$0.4950",
+    "timestamp": "2:34:49 AM"
+  },
+  {
+    "id": "trade-1791671689673",
+    "batch": "#136054913",
+    "pair": "CAKE/WBNB-LIQUIDITY",
+    "txHash": "0xa1ef414ac961615ae921046e0a845a951c6644720c093cb50a37efe3a533512c",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.99,
+    "nextTradeAmount": 208.77,
+    "timestamp": "2:34:49 AM"
+  },
+  {
+    "batch": "#136054905",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x459894bd2bdfb57943bb1c60276265ee8b55a9ee08376f39357f612729f826f9",
+    "yieldGenerated": "$1.0100",
+    "userShare": "$0.5050",
+    "timestamp": "2:34:49 AM"
+  },
+  {
+    "id": "trade-1791671689668",
+    "batch": "#136054905",
+    "pair": "BTCB/USDC-DELTA-NODE",
+    "txHash": "0x459894bd2bdfb57943bb1c60276265ee8b55a9ee08376f39357f612729f826f9",
+    "inputCapital": 207.78,
+    "yieldGenerated": 1.01,
+    "nextTradeAmount": 208.79,
+    "timestamp": "2:34:49 AM"
+  },
+  {
+    "batch": "#136054896",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x32289a21684cce97b8f2e3dbbb7e7b71cff70e46c2c216e72015d764c40d7988",
+    "yieldGenerated": "$1.1500",
+    "userShare": "$0.5750",
+    "timestamp": "2:34:41 AM"
+  },
+  {
+    "id": "trade-1791671681598",
+    "batch": "#136054896",
+    "pair": "ETH/USDT-CROSS-ROUTER",
+    "txHash": "0x32289a21684cce97b8f2e3dbbb7e7b71cff70e46c2c216e72015d764c40d7988",
+    "inputCapital": 207.78,
+    "yieldGenerated": 1.15,
+    "nextTradeAmount": 208.93,
+    "timestamp": "2:34:41 AM"
+  },
+  {
+    "batch": "#136054886",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x091b3e409785c78f382cce8ae568c0301c39c224bde2604af571606cac7a5f57",
+    "yieldGenerated": "$0.3800",
+    "userShare": "$0.1900",
+    "timestamp": "2:34:36 AM"
+  },
+  {
+    "id": "trade-1791671676767",
+    "batch": "#136054886",
+    "pair": "CAKE/WBNB-LIQUIDITY",
+    "txHash": "0x091b3e409785c78f382cce8ae568c0301c39c224bde2604af571606cac7a5f57",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.38,
+    "nextTradeAmount": 208.16,
+    "timestamp": "2:34:36 AM"
+  },
+  {
+    "batch": "#136054872",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x6f9363768588f31e89e551554a09de69f15d3dd9a79a940176af66929b44fb88",
+    "yieldGenerated": "$0.7300",
+    "userShare": "$0.3650",
+    "timestamp": "2:34:32 AM"
+  },
+  {
+    "id": "trade-1791671672705",
+    "batch": "#136054872",
+    "pair": "ETH/USDT-CROSS-ROUTER",
+    "txHash": "0x6f9363768588f31e89e551554a09de69f15d3dd9a79a940176af66929b44fb88",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.73,
+    "nextTradeAmount": 208.51,
+    "timestamp": "2:34:32 AM"
+  },
+  {
+    "batch": "#136054877",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x1c9a3eda0e95d3b734035dd578b37f1fb20cc749f93702358c0cd2b27f162962",
+    "yieldGenerated": "$0.8100",
+    "userShare": "$0.4050",
+    "timestamp": "2:34:32 AM"
+  },
+  {
+    "id": "trade-1791671672426",
+    "batch": "#136054877",
+    "pair": "BTCB/USDC-DELTA-NODE",
+    "txHash": "0x1c9a3eda0e95d3b734035dd578b37f1fb20cc749f93702358c0cd2b27f162962",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.81,
+    "nextTradeAmount": 208.59,
+    "timestamp": "2:34:32 AM"
+  },
+  {
+    "batch": "#136054859",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0xabe92e4981a248cba760df3ac20250cc923d8ab74913a42cc938039e69bf5a38",
+    "yieldGenerated": "$1.4300",
+    "userShare": "$0.7150",
+    "timestamp": "2:34:24 AM"
+  },
+  {
+    "id": "trade-1791671664498",
+    "batch": "#136054859",
+    "pair": "CAKE/WBNB-LIQUIDITY",
+    "txHash": "0xabe92e4981a248cba760df3ac20250cc923d8ab74913a42cc938039e69bf5a38",
+    "inputCapital": 207.78,
+    "yieldGenerated": 1.43,
+    "nextTradeAmount": 209.21,
+    "timestamp": "2:34:24 AM"
+  },
+  {
+    "batch": "#136054850",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0xb635cb63f0565da4d8bc8711dd6137ff18e95d1505eb641f63a7465cc8ad2f8f",
+    "yieldGenerated": "$0.4800",
+    "userShare": "$0.2400",
+    "timestamp": "2:34:20 AM"
+  },
+  {
+    "id": "trade-1791671660354",
+    "batch": "#136054850",
+    "pair": "BTCB/USDC-DELTA-NODE",
+    "txHash": "0xb635cb63f0565da4d8bc8711dd6137ff18e95d1505eb641f63a7465cc8ad2f8f",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.48,
+    "nextTradeAmount": 208.26,
+    "timestamp": "2:34:20 AM"
+  },
+  {
+    "batch": "#136054842",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0xb06e3b95ffae9892abbb3f21f504b8c761a04bd0da1c86d7abd47f575fbe426d",
+    "yieldGenerated": "$0.5000",
+    "userShare": "$0.2500",
+    "timestamp": "2:34:16 AM"
+  },
+  {
+    "id": "trade-1791671656706",
+    "batch": "#136054842",
+    "pair": "ETH/USDT-CROSS-ROUTER",
+    "txHash": "0xb06e3b95ffae9892abbb3f21f504b8c761a04bd0da1c86d7abd47f575fbe426d",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.5,
+    "nextTradeAmount": 208.28,
+    "timestamp": "2:34:16 AM"
+  },
+  {
+    "batch": "#136054832",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x77b41acf077fe7ed11fd8a449d9a0dca82d256bb96ffc9940b656b8be4e5ad93",
+    "yieldGenerated": "$1.2900",
+    "userShare": "$0.6450",
+    "timestamp": "2:34:12 AM"
+  },
+  {
+    "id": "trade-1791671652255",
+    "batch": "#136054832",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x77b41acf077fe7ed11fd8a449d9a0dca82d256bb96ffc9940b656b8be4e5ad93",
+    "inputCapital": 207.78,
+    "yieldGenerated": 1.29,
+    "nextTradeAmount": 209.07,
+    "timestamp": "2:34:12 AM"
+  },
+  {
+    "batch": "#136054815",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0xe5db554d67c4eb007a67cefd93c57b1cbaff152e306b03b225191462d72b8add",
+    "yieldGenerated": "$0.5400",
+    "userShare": "$0.2700",
+    "timestamp": "2:34:08 AM"
+  },
+  {
+    "id": "trade-1791671648655",
+    "batch": "#136054815",
+    "pair": "BTCB/USDC-DELTA-NODE",
+    "txHash": "0xe5db554d67c4eb007a67cefd93c57b1cbaff152e306b03b225191462d72b8add",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.54,
+    "nextTradeAmount": 208.32,
+    "timestamp": "2:34:08 AM"
+  },
+  {
+    "batch": "#136054823",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0xb0fa262a619d06eec506fb2b6240d8b22760b4c82f2474f1dd19c42842ece3b4",
+    "yieldGenerated": "$0.5600",
+    "userShare": "$0.2800",
+    "timestamp": "2:34:08 AM"
+  },
+  {
+    "id": "trade-1791671648236",
+    "batch": "#136054823",
+    "pair": "CAKE/WBNB-LIQUIDITY",
+    "txHash": "0xb0fa262a619d06eec506fb2b6240d8b22760b4c82f2474f1dd19c42842ece3b4",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.56,
+    "nextTradeAmount": 208.34,
+    "timestamp": "2:34:08 AM"
+  },
+  {
+    "batch": "#136054806",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x2d1b4f2fecf81fffe0daf3cddbe6d57c200f4d879eae3235e372777c07d9d5a5",
+    "yieldGenerated": "$0.5700",
+    "userShare": "$0.2850",
+    "timestamp": "2:34:04 AM"
+  },
+  {
+    "id": "trade-1791671644638",
+    "batch": "#136054806",
+    "pair": "USDT/USDC-ARBITRAGE",
+    "txHash": "0x2d1b4f2fecf81fffe0daf3cddbe6d57c200f4d879eae3235e372777c07d9d5a5",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.57,
+    "nextTradeAmount": 208.35,
+    "timestamp": "2:34:04 AM"
+  },
+  {
+    "batch": "#136054800",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0xafc59731ec8c4a2944bb6255bc3cd73a088a7bccf37898639d731c462dad0084",
+    "yieldGenerated": "$0.8100",
+    "userShare": "$0.4050",
+    "timestamp": "2:33:58 AM"
+  },
+  {
+    "id": "trade-1791671638172",
+    "batch": "#136054800",
+    "pair": "BTCB/USDC-DELTA-NODE",
+    "txHash": "0xafc59731ec8c4a2944bb6255bc3cd73a088a7bccf37898639d731c462dad0084",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.81,
+    "nextTradeAmount": 208.59,
+    "timestamp": "2:33:58 AM"
+  },
+  {
+    "batch": "#136054789",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x36a27268cb640869b90f8301d7a710251b9be56a839f70270f96f305a74e048a",
+    "yieldGenerated": "$0.4600",
+    "userShare": "$0.2300",
+    "timestamp": "2:33:53 AM"
+  },
+  {
+    "id": "trade-1791671633119",
+    "batch": "#136054789",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x36a27268cb640869b90f8301d7a710251b9be56a839f70270f96f305a74e048a",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.46,
+    "nextTradeAmount": 208.24,
+    "timestamp": "2:33:53 AM"
+  },
+  {
+    "batch": "#136054772",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x0ff58ac5acd8b681d6df6ff9429d06f91536651a3e0fcaa6366b450240d35279",
+    "yieldGenerated": "$1.3900",
+    "userShare": "$0.6950",
+    "timestamp": "2:33:48 AM"
+  },
+  {
+    "id": "trade-1791671628884",
+    "batch": "#136054772",
+    "pair": "BTCB/USDC-DELTA-NODE",
+    "txHash": "0x0ff58ac5acd8b681d6df6ff9429d06f91536651a3e0fcaa6366b450240d35279",
+    "inputCapital": 207.78,
+    "yieldGenerated": 1.39,
+    "nextTradeAmount": 209.17,
+    "timestamp": "2:33:48 AM"
+  },
+  {
+    "batch": "#136054779",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x836a0f208f62a3c4fd8eae164704fb13cff097401eceb87228617fdf91839d3c",
+    "yieldGenerated": "$0.6500",
+    "userShare": "$0.3250",
+    "timestamp": "2:33:48 AM"
+  },
+  {
+    "id": "trade-1791671628868",
+    "batch": "#136054779",
+    "pair": "BTCB/USDC-DELTA-NODE",
+    "txHash": "0x836a0f208f62a3c4fd8eae164704fb13cff097401eceb87228617fdf91839d3c",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.65,
+    "nextTradeAmount": 208.43,
+    "timestamp": "2:33:48 AM"
+  },
+  {
+    "batch": "#136054761",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x2f3d314acb6342e9db37c5a96dd72707b7369a4467f5332a5df6c2ad7660ed2e",
+    "yieldGenerated": "$0.8400",
+    "userShare": "$0.4200",
+    "timestamp": "2:33:40 AM"
+  },
+  {
+    "id": "trade-1791671620447",
+    "batch": "#136054761",
+    "pair": "CAKE/WBNB-LIQUIDITY",
+    "txHash": "0x2f3d314acb6342e9db37c5a96dd72707b7369a4467f5332a5df6c2ad7660ed2e",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.84,
+    "nextTradeAmount": 208.62,
+    "timestamp": "2:33:40 AM"
+  },
+  {
+    "batch": "#136054754",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0xb5df4e91c2fb27f234ec466f4a200f1fe11efbc6b3e636bc8ef29b65199cca84",
+    "yieldGenerated": "$1.0100",
+    "userShare": "$0.5050",
+    "timestamp": "2:33:37 AM"
+  },
+  {
+    "id": "trade-1791671617560",
+    "batch": "#136054754",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0xb5df4e91c2fb27f234ec466f4a200f1fe11efbc6b3e636bc8ef29b65199cca84",
+    "inputCapital": 207.78,
+    "yieldGenerated": 1.01,
+    "nextTradeAmount": 208.79,
+    "timestamp": "2:33:37 AM"
+  },
+  {
+    "batch": "#136054744",
+    "pair": "USDC/tBNB-QUANTUM-NODE",
+    "txHash": "0x0d543dfd383aa08caea68d0a9de1ed0dbf5df2b2851529a61f308fc9d3dab7b0",
+    "yieldGenerated": "$0.4500",
+    "userShare": "$0.2250",
+    "timestamp": "2:33:33 AM"
+  },
+  {
+    "id": "trade-1791671613609",
+    "batch": "#136054744",
+    "pair": "ETH/USDT-CROSS-ROUTER",
+    "txHash": "0x0d543dfd383aa08caea68d0a9de1ed0dbf5df2b2851529a61f308fc9d3dab7b0",
+    "inputCapital": 207.78,
+    "yieldGenerated": 0.45,
+    "nextTradeAmount": 208.23,
+    "timestamp": "2:33:33 AM"
+  }
+]

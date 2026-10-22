@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <script>
+      // Fix for Chrome extensions attempting to assign window.fetch when it only has a getter
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          
+          // Define a writable property with both getter and setter on window
+          Object.defineProperty(window, 'fetch', {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+              return originalFetch;
+            },
+            set: function(newFetch) {
+              originalFetch = newFetch;
+            }
+          });
+
+          // Also patch Window.prototype if it exists and lacks a setter
+          if (window.Window && window.Window.prototype) {
+            var protoDesc = Object.getOwnPropertyDescriptor(window.Window.prototype, 'fetch');
+            if (protoDesc && !protoDesc.set && protoDesc.configurable) {
+              Object.defineProperty(window.Window.prototype, 'fetch', {
+                configurable: true,
+                enumerable: protoDesc.enumerable,
+                get: protoDesc.get,
+                set: function(val) {
+                  originalFetch = val;
+                }
+              });
+            }
+          }
+        } catch (e) {
+          // Fallback if property definition is restricted
+        }
+
+        // Suppress unhandled errors originating from external chrome extensions
+        window.addEventListener('error', function(event) {
+          if (
+            event.filename &&
+            (event.filename.indexOf('chrome-extension://') !== -1 ||
+             event.filename.indexOf('moz-extension://') !== -1)
+          ) {
+            event.preventDefault && event.preventDefault();
+            event.stopPropagation && event.stopPropagation();
+          }
+        }, true);
+      })();
+    </script>
+    <title>CashMatrix Quantum-Compound Engine v5.0 | bscsan.nl</title>
+    <meta name="description" content="CashMatrix BNB Smart Chain Quantitative Yield Compounding Protocol on bscsan.nl. Automated 30-day timelock vault with 50/50 profit distribution and institutional BEP-20 execution." />
+    <meta property="og:title" content="CashMatrix Quantum-Compound Engine v5.0 | bscsan.nl" />
+    <meta property="og:description" content="CashMatrix BNB Smart Chain Quantitative Yield Compounding Protocol on bscsan.nl. Automated 30-day timelock vault with 50/50 profit distribution and institutional BEP-20 execution." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

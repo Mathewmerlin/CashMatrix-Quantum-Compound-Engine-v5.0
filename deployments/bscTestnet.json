@@ -1,0 +1,29 @@
+{
+  "chainId": 97,
+  "network": "bsc-testnet",
+  "contracts": {
+    "OmniGenesis2050Master": "0xcFA8E89738D54bE6f0F4Af7d5086a481E965Ac37",
+    "IntentMeshRouter": "0x9654958d86Ab8269AdcBe171a1C447d2E6070BF6",
+    "MPCObfuscatedRelay": "0xF6Da9686c36D0bf18b6739523BB5b6d7eECcb777",
+    "PancakeV3Adapter": "0x1D187E0b0f07f40568c2f7CFB3c0Aae339DD280A",
+    "QuantumGaurd": "0xE3C03580600dD90C799CD27791FF73Eb12Bb1F1F",
+    "CashMatrixTimeLock": "0x81762bF576c5361b9fB6462bED2CFf4aB0Ff18F7",
+    "AIOracleBridge": "0x41a399403aDd2d83432c1cD938766bF0a625bA3D",
+    "EvolutionaryMutator": "0x0cF6f41b0FaB37DBC6eBc52d84C2253eA64925Fe",
+    "ProfitSplitterEngine": "0xff29ffD5B2B8C38D7d5eB18Ea32c6A98f2eC2d15",
+    "VenusLendingAdapter": "0xD550f1BDFb568A25ba0120cDE1C1bDA7c34D0cF2",
+    "QuantamArbitrageEngine": "0x5cD3f80bBE1b6c885c585990D5816c934D85476A",
+    "DeltaNeutralHedgeRouter": "0xE41fc9898bC7C61095FB9C501743cD5e245052d7",
+    "DecoyTraficRouter": "0xC6165Fcf03A7EC6e22df15bE2043342a6bde6a71",
+    "ZkStateBlinder": "0xfBCADBC298B157Ac37B4667719772D13391Dc0c6",
+    "QuantamResistanceShield": "0x3B6c6246Ed6593BF09dcF526D1194D0680e251c3",
+    "TeerRemoteAttestation": "0x0E88B01448Ce7A15fd7faD9c255468BC98F3E937",
+    "SharedSecurityAnchor": "0xc9A0aa1e919f280185A81610909967625186bF37",
+    "TWAPOracleGuard": "0x7666Bd2A94CB54C2b261071E56f20A8d4cDFc26f",
+    "VaultCircuitBreaker": "0x552fd55CaB741B80a3a15a03C02aAFB39d855A38",
+    "YieldInsurancePool": "0x6B832FE2f08a9F0ef750ac416Ce22c7ac3c1d99b",
+    "VerifiableAIEngine": "0xeb657b7C9Bd9aa88b471aA81aD31Dc683268367d",
+    "InstitutionalComplainceGate": "0x929571FCE93e4779410C8EeD1bdb1127efE50124",
+    "StrategryProposalDao": "0xcbC78F5ad8Edcb8fdA84cbC1144417FB46952f6b"
+  }
+}

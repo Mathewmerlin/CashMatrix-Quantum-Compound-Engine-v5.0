@@ -1,0 +1,51 @@
+# =====================================================================
+# CashMatrix Production .htaccess for GoDaddy Hosting (bscsan.nl)
+# =====================================================================
+
+# 1. ENFORCE HTTPS FOR ALL REQUESTS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. CANONICAL DOMAIN ENFORCEMENT (bscsan.nl)
+RewriteCond %{HTTP_HOST} ^www\.bscsan\.nl [NC]
+RewriteRule ^(.*)$ https://bscsan.nl/$1 [L,R=301]
+
+# 3. PRODUCTION SECURITY HEADERS
+<IfModule mod_headers.c>
+  # Protect against clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Prevent MIME-type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  # Cross-site scripting (XSS) filter
+  Header always set X-XSS-Protection "1; mode=block"
+  # Referrer Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Strict Transport Security (HSTS - 1 Year)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  # Content Security Policy (allows Web3 RPCs, WalletConnect, BSC endpoints)
+  Header always set Content-Security-Policy "default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval'; connect-src 'self' https://*.binance.org https://bscrpc.com https://*.llamarpc.com https://*.bscscan.com wss://*.walletconnect.org https://*.walletconnect.org; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com;"
+</IfModule>
+
+# 4. SINGLE PAGE APPLICATION (SPA) ROUTING REWRITE
+# Ensures deep links (e.g. bscsan.nl/user) route to index.html without 404
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# 5. ASSET GZIP COMPRESSION & CACHING
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpg "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

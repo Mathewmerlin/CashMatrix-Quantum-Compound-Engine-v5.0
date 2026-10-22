@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <linearGradient id="cmGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="50%" stop-color="#14b8a6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="cmGradDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="100%" stop-color="#083344" />
+    </linearGradient>
+  </defs>
+  <polygon points="60,6 106,32 106,88 60,114 14,88 14,32" fill="url(#cmGradDark)" stroke="url(#cmGrad1)" stroke-width="4" stroke-linejoin="round" />
+  <path d="M74,34 L46,34 C36,34 28,42 28,52 L28,68 C28,78 36,86 46,86 L74,86" stroke="url(#cmGrad1)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M44,72 L44,46 L60,63 L76,46 L76,72" stroke="#34d399" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="60" cy="63" r="5" fill="#ecfeff" />
+</svg>

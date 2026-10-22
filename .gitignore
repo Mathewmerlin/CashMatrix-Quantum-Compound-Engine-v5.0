@@ -1,0 +1,25 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+src/cli/keeper/.env
+
+# Foundry build artifacts
+out/
+cache/
+broadcast/
+
+# Backup files
+*.bak
+
+# Local secrets
+.env
+.env.*
+!.env.example
+
+# AI session artifacts
+.antigravity/
